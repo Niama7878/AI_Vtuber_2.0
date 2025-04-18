@@ -1,0 +1,523 @@
+/* --- Google Fonts 字体导入 --- */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap'); 
+
+/* --- CSS 变量定义 --- */
+:root {
+  --font-primary: 'Inter', sans-serif; /* 主要字体 */
+
+  /* 亮色主题变量 */
+  --bg-color-light: #f8f9fa;
+  --text-color-light: #212529;
+  --card-bg-light: #ffffff;
+  --border-color-light: #dee2e6;
+  --accent-color-light: #007bff; /* 主题强调色 */
+  --success-color-light: #28a745; /* 成功状态 */
+  --error-color-light: #dc3545;   /* 错误状态 */
+  --warning-color-light: #ffc107; /* 警告/暂停状态 */
+  --table-header-bg-light: #e9ecef;
+  --table-row-hover-bg-light: #f1f3f5;
+  --button-bg-light: #007bff;
+  --button-text-light: #ffffff;
+  --button-hover-bg-light: #0056b3;
+  --link-color-light: #007bff;
+  --loader-color-light: #6c757d;
+  --chat-user-bg-light: #e7f5ff; /* 用户聊天气泡背景 */
+  --chat-user-text-light: var(--text-color-light); 
+  --chat-user-text: var(--chat-user-text-light);
+  --chat-bot-bg-light: #f1f3f5;  /* 机器人聊天气泡背景 */
+  --shadow-color-light: rgba(0, 0, 0, 0.1);
+
+  /* 暗色主题变量 */
+  --bg-color-dark: #121212;
+  --text-color-dark: #e0e0e0;
+  --card-bg-dark: #1e1e1e;
+  --border-color-dark: #444;
+  --accent-color-dark: #0d6efd;
+  --success-color-dark: #198754;
+  --error-color-dark: #dc3545;
+  --warning-color-dark: #ffca2c;
+  --table-header-bg-dark: #343a40;
+  --table-row-hover-bg-dark: #2c3034;
+  --button-bg-dark: #0d6efd;
+  --button-text-dark: #ffffff;
+  --button-hover-bg-dark: #0b5ed7;
+  --link-color-dark: #6ea8fe;
+  --loader-color-dark: #adb5bd;
+  --chat-user-bg-dark: #0b5ed7;
+  --chat-bot-bg-dark: #343a40;
+  --shadow-color-dark: rgba(0, 0, 0, 0.4);
+
+  /* 默认应用亮色主题 */
+  --bg-color: var(--bg-color-light);
+  --text-color: var(--text-color-light);
+  --card-bg: var(--card-bg-light);
+  --border-color: var(--border-color-light);
+  --accent-color: var(--accent-color-light);
+  --success-color: var(--success-color-light);
+  --error-color: var(--error-color-light);
+  --warning-color: var(--warning-color-light);
+  --table-header-bg: var(--table-header-bg-light);
+  --table-row-hover-bg: var(--table-row-hover-bg-light);
+  --button-bg: var(--button-bg-light);
+  --button-text: var(--button-text-light);
+  --button-hover-bg: var(--button-hover-bg-light);
+  --link-color: var(--link-color-light);
+  --loader-color: var(--loader-color-light);
+  --chat-user-bg: var(--chat-user-bg-light);
+  --chat-bot-bg: var(--chat-bot-bg-light);
+  --shadow-color: var(--shadow-color-light);
+
+  /* 通用样式变量 */
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --card-padding: 1.5rem;
+  --element-spacing: 1rem; /* 元素间距 */
+  --transition-duration: 0.3s; /* 过渡动画时长 */
+  --box-shadow: 0 4px 12px var(--shadow-color); /* 卡片阴影 */
+}
+
+/* 应用暗色主题 */
+[data-theme="dark"] {
+  --bg-color: var(--bg-color-dark);
+  --text-color: var(--text-color-dark);
+  --card-bg: var(--card-bg-dark);
+  --border-color: var(--border-color-dark);
+  --accent-color: var(--accent-color-dark);
+  --success-color: var(--success-color-dark);
+  --error-color: var(--error-color-dark);
+  --warning-color: var(--warning-color-dark);
+  --table-header-bg: var(--table-header-bg-dark);
+  --table-row-hover-bg: var(--table-row-hover-bg-dark);
+  --button-bg: var(--button-bg-dark);
+  --button-text: var(--button-text-dark);
+  --button-hover-bg: var(--button-hover-bg-dark);
+  --link-color: var(--link-color-dark);
+  --loader-color: var(--loader-color-dark);
+  --chat-user-bg: var(--chat-user-bg-dark);
+  --chat-user-text-dark: var(--button-text-dark);
+  --chat-user-text: var(--chat-user-text-dark);
+  --chat-bot-bg: var(--chat-bot-bg-dark);
+  --shadow-color: var(--shadow-color-dark);
+}
+
+/* --- 全局样式与重置 --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: var(--element-spacing);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
+}
+
+h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+  text-align: center;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color var(--transition-duration) ease;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: var(--accent-color);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background-color var(--transition-duration) ease, transform 0.1s ease;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+input[type="number"] {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  width: 60px;
+  text-align: center;
+  transition: border-color var(--transition-duration) ease, box-shadow var(--transition-duration) ease;
+}
+
+input[type="number"]:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px var(--accent-color);
+}
+
+/* --- 卡片布局 --- */
+.card {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius-md);
+  padding: var(--card-padding);
+  margin-bottom: var(--element-spacing);
+  box-shadow: var(--box-shadow);
+  width: 100%;
+  max-width: 900px;
+  transition: background-color var(--transition-duration) ease, box-shadow var(--transition-duration) ease;
+  overflow: hidden;
+}
+
+/* --- 状态列表 --- */
+#statusList {
+  list-style: none;
+  padding: 0;
+}
+
+#statusList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--border-color);
+  transition: border-color var(--transition-duration) ease;
+}
+
+#statusList li:last-child {
+  border-bottom: none;
+}
+
+.status-label {
+  margin-right: var(--element-spacing);
+  font-weight: 500;
+}
+
+#statusList strong {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: right;
+  font-weight: 400;
+}
+
+#statusList strong .fa-solid {
+  font-size: 1.1em;
+  width: 1.5em; /* 固定图标宽度利于对齐 */
+  text-align: center;
+}
+
+/* --- 特定状态图标颜色 --- */
+.fa-microphone { color: var(--success-color); }
+.fa-microphone-slash { color: var(--error-color); }
+.fa-toggle-on { color: var(--success-color); }
+.fa-toggle-off { color: var(--error-color); }
+.fa-play { color: var(--success-color); } /* 播放中用绿色 */
+.fa-pause, .fa-stop { color: var(--warning-color); } /* 暂停/停止用警告色(橙色) */
+.fa-triangle-exclamation, .fa-plug-circle-xmark { color: var(--error-color); }
+.fa-check { color: var(--success-color); }
+.fa-times { color: var(--error-color); }
+.fa-info-circle { color: var(--accent-color); }
+
+/* --- 加载动画 --- */
+.loader {
+  width: 1em;
+  height: 1em;
+  border: 2px solid var(--loader-color);
+  border-top-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --- 聊天界面 --- */
+#chatInterface {
+  height: 350px; /* 固定聊天区域高度 */
+  overflow-y: auto; /* 超出时滚动 */
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  margin-top: var(--element-spacing);
+  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color var(--transition-duration) ease, background-color var(--transition-duration) ease;
+}
+
+.chat-message {
+  max-width: 75%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius-md);
+  word-wrap: break-word;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: messageEnter 0.4s ease forwards; /* 消息进入动画 */
+}
+
+.chat-message p {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.user-message {
+  background-color: var(--chat-user-bg);
+  color: var(--chat-user-text);  /* 使用专门的用户消息文字颜色 */
+  align-self: flex-end; /* 靠右 */
+  border-bottom-right-radius: var(--border-radius-sm);
+}
+
+.bot-message {
+  background-color: var(--chat-bot-bg);
+  color: var(--text-color);
+  align-self: flex-start; /* 靠左 */
+  border-bottom-left-radius: var(--border-radius-sm);
+}
+
+/* 聊天消息动画 */
+@keyframes messageEnter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes messageExit {
+  from {
+      opacity: 1;
+      transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+/* JS 使用这个 class 触发退出动画 */
+.message-exit-active {
+  animation: messageExit 0.3s ease forwards;
+}
+
+/* 机器人打字效果 (纯 CSS, 作用于空的 p 标签) */
+.bot-message p:empty::after {
+  content: '...';
+  display: inline-block;
+  animation: typingDots 1.5s infinite steps(3, end);
+  vertical-align: bottom;
+  margin-left: 4px;
+}
+
+@keyframes typingDots {
+  0%, 20% { content: '.'; }
+  40% { content: '..'; }
+  60%, 100% { content: '...'; }
+}
+
+/* --- 数据库表格 --- */
+#recordsContainer {
+  margin-top: var(--element-spacing);
+  overflow-x: auto; /* 小屏幕允许横向滚动 */
+  opacity: 1;
+  transition: opacity var(--transition-duration) ease-in-out;
+}
+
+#recordsContainer.loading {
+  text-align: center;
+  padding: 2rem;
+  color: var(--loader-color);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--element-spacing);
+  font-size: 0.9rem;
+}
+
+th, td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  white-space: nowrap; /* 默认不换行 */
+  overflow: hidden;
+  text-overflow: ellipsis; /* 超出显示省略号 */
+  max-width: 200px;
+}
+
+th:nth-child(4), /* 问题列 */
+td:nth-child(4),
+th:nth-child(5), /* 回复列 */
+td:nth-child(5) {
+  white-space: pre-wrap; /* 允许问题和回复列换行 */
+  max-width: 300px;
+}
+
+td {
+  color: var(--text-color);
+}
+
+td[title] {
+  cursor: help; /* 提示用户有完整内容 */
+}
+
+thead th {
+  background-color: var(--table-header-bg);
+  font-weight: 700;
+  position: sticky; /* 表头吸顶 */
+  top: 0;
+  z-index: 1;
+}
+
+tbody tr {
+  transition: background-color var(--transition-duration) ease;
+}
+
+tbody tr:hover {
+  background-color: var(--table-row-hover-bg);
+}
+
+/* --- 分页 --- */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: var(--element-spacing);
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.pagination button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: var(--button-hover-bg);
+}
+
+.pagination button i {
+  margin-left: 0.3rem;
+  margin-right: 0.3rem;
+}
+
+.pagination span {
+  font-size: 0.9rem;
+}
+
+.pagination input.input-error {
+  border-color: var(--error-color);
+  box-shadow: 0 0 0 2px var(--error-color);
+}
+
+/* --- 主题切换按钮 --- */
+.theme-toggle {
+  position: fixed; /* 固定在右上角 */
+  top: var(--element-spacing);
+  right: var(--element-spacing);
+  z-index: 10;
+}
+
+#themeToggleButton {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--box-shadow);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#themeToggleButton:hover {
+  background-color: var(--table-row-hover-bg);
+}
+
+/* --- 工具类 --- */
+.error-message {
+  color: var(--error-color);
+  font-weight: 500;
+  background-color: rgba(220, 53, 69, 0.1); 
+  border: 1px solid var(--error-color);
+  border-radius: var(--border-radius-sm);
+  padding: 1rem;
+  text-align: center;
+}
+
+/* --- 响应式设计 --- */
+@media (max-width: 768px) { /* 平板 */
+  body {
+    padding: calc(var(--element-spacing) / 2);
+  }
+  .card {
+    padding: calc(var(--card-padding) / 1.5);
+    margin-bottom: calc(var(--element-spacing) / 1.5);
+  }
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  #chatInterface {
+    height: 300px;
+  }
+  th, td {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.85rem;
+  }
+  .pagination {
+    gap: 0.5rem;
+    justify-content: space-around;
+  }
+  .pagination button, .pagination input, .pagination span {
+    font-size: 0.85rem;
+  }
+  .pagination input[type="number"] {
+    width: 50px;
+  }
+  .theme-toggle {
+    top: calc(var(--element-spacing) / 2);
+    right: calc(var(--element-spacing) / 2);
+  }
+}
+
+@media (max-width: 480px) { /* 手机 */
+  h1 { font-size: 1.3rem; }
+  .card { padding: 1rem; }
+  #chatInterface { height: 250px; }
+  .chat-message { max-width: 85%; }
+  .pagination span, .pagination button { font-size: 0.8rem; }
+  .pagination input { width: 45px; padding: 0.4rem; }
+  /* 手机上状态列表竖向排列 */
+  #statusList li { flex-direction: column; align-items: flex-start; gap: 0.2rem; }
+  #statusList strong { text-align: left; }
+}
