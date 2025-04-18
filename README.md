@@ -91,7 +91,7 @@
 * `app.py`: Flask Web 应用，提供状态监控和聊天记录查看的 Web 界面。
 * `word.py`: 使用 Pygame 和 OpenGL 创建一个独立的窗口，实时显示带打字效果的 AI 回复文本。
 * `common.py`: 存储共享状态变量和辅助函数，连接各个模块。
-* `roleplay.txt`: (推测) 包含 AI 的角色设定或系统提示词。
+* `roleplay.txt`: 包含 AI 的角色设定或系统提示词。
 * `backup.txt`: 临时文件，`common.py` 写入 AI 文本流，`word.py` 读取并显示。
 * `token.json`: (自动生成) 保存 VTube Studio 的 API 认证令牌。
 
