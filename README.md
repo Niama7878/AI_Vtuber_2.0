@@ -39,11 +39,9 @@
 
 ## 安装
 
-
-
 1.  **安装 Python 依赖**
     ```bash
-    pip install python-dotenv PyAudio pydub websocket-client requests rapidfuzz Flask pygame pyopengl freetype-py noise
+    pip install python-dotenv PyAudio pydub websocket-client requests rapidfuzz Flask pygame pyopengl numpy freetype-py noise
     ```
 
 ## 配置
