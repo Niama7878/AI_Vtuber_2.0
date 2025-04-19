@@ -107,7 +107,7 @@ class ChatDisplay:
                 self.lines.pop(0)
                 self.display_text = "\n".join(self.lines)
 
-            if self.full_text_rendered_time and current_time - self.full_text_rendered_time > 4: # 完全显示后超时无新文本
+            if self.full_text_rendered_time and current_time - self.full_text_rendered_time > 8: # 完全显示后超时无新文本
                 self.text_queue = ""
                 self.display_text = ""
                 self.lines = []

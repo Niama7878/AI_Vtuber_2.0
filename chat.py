@@ -95,7 +95,7 @@ def on_open(ws):
         session_update = {
             "type": "session.update",
             "session": {
-                "voice": "shimmer",
+                "voice": "alloy",
                 "input_audio_transcription": {
                     "model": "whisper-1",
                     "language": "zh"
@@ -173,7 +173,7 @@ def audio_stream():
     """监听麦克风的音频并发送到 WebSocket"""
     audio = pyaudio.PyAudio()
     stream = audio.open(format=pyaudio.paInt16, channels=CHANNELS, rate=RATE,
-                        input=True, frames_per_buffer=CHUNK)
+                        input=True, input_device_index=audio.get_default_input_device_info()['index'], frames_per_buffer=CHUNK)
     while True:
         if mic_status() and not player.is_playing: # 麦克风启用和无音频播放
             pcm_data = stream.read(CHUNK, exception_on_overflow=False)
