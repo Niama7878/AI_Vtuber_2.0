@@ -129,7 +129,7 @@ def on_open(ws):
         } # 初始化配置
         ws_global.send(json.dumps(session_update)) 
     except Exception as e:
-        print(f"on_open 过程中发生错误: {e}")
+        print(f"OpenAI WebSocket 初始化配置错误: {e}")
 
 def connect_ws():
     """建立 WebSocket 连接""" 
