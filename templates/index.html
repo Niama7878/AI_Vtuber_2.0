@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="auto">
+    <head>
+        <meta charset="UTF-8">
+        <title>系统数据状态</title>
+        <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <div class="theme-toggle">
+            <button id="themeToggleButton"><i class="fa-solid fa-circle-half-stroke"></i> 切换主题</button>
+        </div>
+        <div class="card">
+            <h1>系统状态</h1>
+            <ul id="statusList">
+                <li><span class="status-label">正在处理:</span> <strong id="processing"><span class="loader"></span></strong></li>
+                <li><span class="status-label">语音转录:</span> <strong id="stt"><span class="loader"></span></strong></li>
+                <li><span class="status-label">麦克风:</span> <strong id="mic"><span class="loader"></span></strong></li>
+                <li><span class="status-label">播放器状态:</span> <strong id="playerStatus"><span class="loader"></span></strong></li>
+                <li><span class="status-label">聊天记录 ID:</span> <strong id="chatIds"><span class="loader"></span></strong></li>
+            </ul>
+        </div>
+
+        <div class="card" id="chatCard">
+            <h1>实时对话</h1>
+            <div id="chatInterface">
+            </div>
+        </div>
+        <div class="card">
+            <h1>数据库</h1>
+            <div id="recordsContainer">加载中...</div>
+            <div class="pagination" id="paginationControls" style="display:none;">
+                <button id="prevPageButton" disabled><i class="fa-solid fa-arrow-left"></i> 上一页</button>
+                <span>第 <span id="currentPage">1</span> 页 / 共 <span id="totalPages">1</span> 页</span>
+                <button id="nextPageButton">下一页 <i class="fa-solid fa-arrow-right"></i></button>
+                跳转到 <input type="number" id="pageInput" min="1" placeholder="页码"> 页 <button id="jumpPageButton"><i class="fa-solid fa-check"></i> 跳转</button>
+            </div>
+        </div>
+        <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+    </body>
+</html>
