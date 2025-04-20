@@ -95,4 +95,4 @@
 
 ## 使用教程
 
-[YouTube 主页 摆烂中...可能过几天在剪片？](https://www.youtube.com/@Niama78_) [Bilibili 主页 摆烂中...可能过几天在剪片？](https://space.bilibili.com/3493271504422931)
+[YouTube](https://youtu.be/_9R8eSuDoQI) [Bilibili](https://www.bilibili.com/video/BV1ubLMz8EK3)
