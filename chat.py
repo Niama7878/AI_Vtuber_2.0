@@ -167,7 +167,7 @@ def send_audio_data(pcm16_audio):
         }
         ws_global.send(json.dumps(data))
     except Exception as e:
-        pass
+        print(f"发送音频数据到 OpenAI WebSocket 失败: {e}")
 
 def audio_stream():
     """监听麦克风的音频并发送到 WebSocket"""
